@@ -17,5 +17,7 @@ libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "2.6.0" % "provid
 libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "2.6.0" % "provided"
 // https://mvnrepository.com/artifact/junit/junit
 libraryDependencies += "junit" % "junit" % "4.11" % "test"
-libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+
+// https://mvnrepository.com/artifact/org.apache.mrunit/mrunit
+libraryDependencies += "org.apache.mrunit" % "mrunit" % "1.1.0" % Test classifier "hadoop2" 
 
