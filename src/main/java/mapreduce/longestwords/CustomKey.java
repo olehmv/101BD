@@ -4,14 +4,18 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
 
+/**
+ * CustomKey class Causes a descending order in the shuffle/sort phase
+ * 
+ * @author oleh
+ */
 public class CustomKey implements WritableComparable<CustomKey> {
-	private int keyy; 
+	private int key;
 
 	public CustomKey(int k) {
-		keyy=k;
+		key = k;
 	}
 
 	public CustomKey() {
@@ -25,15 +29,15 @@ public class CustomKey implements WritableComparable<CustomKey> {
 
 	@Override
 	public void write(DataOutput out) throws IOException {
-		out.writeInt(keyy);
+		out.writeInt(key);
 	}
 
 	@Override
 	public int compareTo(CustomKey k) {
-		if (k.get() > keyy) {
+		if (k.get() > key) {
 			return 1;
 		}
-		if (k.get() < keyy) {
+		if (k.get() < key) {
 			return -1;
 		}
 		return 0;
@@ -41,24 +45,23 @@ public class CustomKey implements WritableComparable<CustomKey> {
 	}
 
 	public int get() {
-		return keyy;
+		return key;
 	}
 
 	public void set(int k) {
-		keyy=k;
+		key = k;
 	}
 
 	public String toString() {
 
-		return Integer.toString(keyy);
-
+		return Integer.toString(key);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + keyy;
+		result = prime * result + key;
 		return result;
 	}
 
@@ -71,12 +74,9 @@ public class CustomKey implements WritableComparable<CustomKey> {
 		if (getClass() != obj.getClass())
 			return false;
 		CustomKey other = (CustomKey) obj;
-		if (keyy != other.keyy)
+		if (key != other.key)
 			return false;
 		return true;
 	}
-	
-
-	
 
 }

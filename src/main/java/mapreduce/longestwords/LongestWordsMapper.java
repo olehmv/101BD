@@ -2,11 +2,14 @@ package mapreduce.longestwords;
 
 import java.io.IOException;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-
+/**
+ * Map word length to word
+ * @author oleh
+ *
+ */
 public class LongestWordsMapper extends Mapper<LongWritable, Text, CustomKey, Text> {
 	private CustomKey wordLength;
 	private Text word;
