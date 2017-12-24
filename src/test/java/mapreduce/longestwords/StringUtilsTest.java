@@ -10,7 +10,7 @@ import org.apache.hadoop.io.Text;
 import org.junit.Test;
 
 public class StringUtilsTest {
-	private String text = "What  human, contrivance could do that?!";
+	private String text = "What  human, contrivance could do that?";
 	private final String WORDSEPARATOR = "\t";
 
 	@Test

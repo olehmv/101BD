@@ -1,5 +1,7 @@
 package mapreduce.longestwords;
 
+import java.util.Arrays;
+
 import org.apache.hadoop.io.Text;
 /**
  * Converts strings
@@ -13,6 +15,11 @@ public class StringUtils {
 	 * @param separator
 	 * @return string
 	 */
+	public static void main(String[] args) {
+		 String text = "What  human, contrivance could do that?";
+System.out.println(Arrays.toString(breakLineToWords(text)));
+		
+	}
 	public static String stringBuilder(Iterable<Text> values, String separator) {		
 		StringBuffer buffer=new StringBuffer();
 		for (Text string : values) {
@@ -26,7 +33,7 @@ public class StringUtils {
 	 * @return String[]
 	 */
 	public static String[] breakLineToWords(String line) {
-		line = line.replaceAll("[!?,]", "");
+		line=line.replaceAll("[!?.,]", "");	
 		String[] words = line.split("\\s+");
 		return words;
 	}
