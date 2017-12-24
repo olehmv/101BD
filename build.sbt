@@ -5,8 +5,7 @@ organization := "com.course.epam"
 version := "1"
 
 scalaVersion :="2.11.11"
-//sbt update-classifiers
-//sbt eclipse
+//sbt update-classifiers, sbt eclipse -> this command download javadoc for eclipse project
 EclipseKeys.withSource := true
 
 scalacOptions := Seq("-target:jvm-1.8")
@@ -20,7 +19,6 @@ libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "2.6.0" % "provid
 libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "2.6.0" % "provided"
 // https://mvnrepository.com/artifact/junit/junit
 libraryDependencies += "junit" % "junit" % "4.11" % "test"
-
 // https://mvnrepository.com/artifact/org.apache.mrunit/mrunit
 libraryDependencies += "org.apache.mrunit" % "mrunit" % "1.1.0" % Test classifier "hadoop2" 
 
