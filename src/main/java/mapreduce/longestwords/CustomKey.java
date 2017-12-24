@@ -8,10 +8,10 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
 
 public class CustomKey implements WritableComparable<CustomKey> {
-	private int key;
+	private int keyy; 
 
 	public CustomKey(int k) {
-		key = k;
+		keyy=k;
 	}
 
 	public CustomKey() {
@@ -20,20 +20,20 @@ public class CustomKey implements WritableComparable<CustomKey> {
 
 	@Override
 	public void readFields(DataInput in) throws IOException {
-		key = in.readInt();
+		set(in.readInt());
 	}
 
 	@Override
 	public void write(DataOutput out) throws IOException {
-		out.writeInt(key);
+		out.writeInt(keyy);
 	}
 
 	@Override
 	public int compareTo(CustomKey k) {
-		if (k.get() > key) {
+		if (k.get() > keyy) {
 			return 1;
 		}
-		if (k.get() < key) {
+		if (k.get() < keyy) {
 			return -1;
 		}
 		return 0;
@@ -41,12 +41,42 @@ public class CustomKey implements WritableComparable<CustomKey> {
 	}
 
 	public int get() {
-		return key;
+		return keyy;
 	}
 
 	public void set(int k) {
-		key = k;
+		keyy=k;
 	}
+
+	public String toString() {
+
+		return Integer.toString(keyy);
+
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + keyy;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CustomKey other = (CustomKey) obj;
+		if (keyy != other.keyy)
+			return false;
+		return true;
+	}
+	
+
 	
 
 }

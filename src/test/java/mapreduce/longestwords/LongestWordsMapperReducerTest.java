@@ -46,8 +46,8 @@ public class LongestWordsMapperReducerTest {
 	@Test
 	public void mapReduceTest() throws IOException {
 		mapReduceDriver.withInput(new LongWritable(), new Text("Hi,Hello"));
-		mapReduceDriver.addOutput(new CustomKey(2), new Text("Hi\t"));
 		mapReduceDriver.addOutput(new CustomKey(5), new Text("Hello\t"));
+		mapReduceDriver.addOutput(new CustomKey(2), new Text("Hi\t"));
 		mapReduceDriver.runTest();
 	}
 
