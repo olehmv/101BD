@@ -1,10 +1,13 @@
-organization := "com.course.epam"
-
 name := "101BD"
+
+organization := "com.course.epam"
 
 version := "1"
 
 scalaVersion :="2.11.11"
+//sbt update-classifiers
+//sbt eclipse
+EclipseKeys.withSource := true
 
 scalacOptions := Seq("-target:jvm-1.8")
 // adding the tools.jar to the unmanaged-jars seq
