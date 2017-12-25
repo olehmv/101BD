@@ -1,7 +1,7 @@
-package mapreduce.longestwords;
+package module1.homework1;
 
-import static mapreduce.longestwords.StringUtils.breakLineToWords;
-import static mapreduce.longestwords.StringUtils.stringBuilder;
+import static module1.homework1.StringUtils.breakLineToWords;
+import static module1.homework1.StringUtils.stringBuilder;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;

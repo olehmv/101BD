@@ -1,4 +1,4 @@
-package mapreduce.longestwords;
+package module1.homework1;
 
 import java.io.IOException;
 import java.util.ArrayList;

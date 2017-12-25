@@ -1,11 +1,12 @@
-package mapreduce.longestwords;
+package module1.homework1;
+
+import static module1.homework1.StringUtils.breakLineToWords;
 
 import java.io.IOException;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import static mapreduce.longestwords.StringUtils.breakLineToWords;
 /**
  * Map word length to word
  * @author oleh

@@ -1,4 +1,4 @@
-package mapreduce.longestwords;
+package module1.homework1;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -9,7 +9,7 @@ import org.apache.hadoop.io.WritableComparable;
 /**
  * CustomKey class Causes a descending order in the shuffle/sort phase
  * 
- * @author oleh
+ * @author Oleh
  */
 public class CustomKey implements WritableComparable<CustomKey> {
 	private int key;

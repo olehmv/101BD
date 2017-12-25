@@ -1,6 +1,6 @@
-package mapreduce.longestwords;
+package module1.homework1;
 
-import static mapreduce.longestwords.StringUtils.stringBuilder;
+import static module1.homework1.StringUtils.stringBuilder;
 
 import java.io.IOException;
 

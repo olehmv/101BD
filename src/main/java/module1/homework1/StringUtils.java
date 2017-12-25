@@ -1,6 +1,4 @@
-package mapreduce.longestwords;
-
-import java.util.Arrays;
+package module1.homework1;
 
 import org.apache.hadoop.io.Text;
 /**
@@ -15,11 +13,6 @@ public class StringUtils {
 	 * @param separator
 	 * @return string
 	 */
-	public static void main(String[] args) {
-		 String text = "What  human, contrivance could do that?";
-System.out.println(Arrays.toString(breakLineToWords(text)));
-		
-	}
 	public static String stringBuilder(Iterable<Text> values, String separator) {		
 		StringBuffer buffer=new StringBuffer();
 		for (Text string : values) {
