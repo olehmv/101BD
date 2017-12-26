@@ -10,6 +10,15 @@ public class CountAverageTuple implements Writable{
 	private float count;
 	private float average;
 	
+	
+	
+	
+	public CountAverageTuple(float count, float average) {
+		super();
+		this.count = count;
+		this.average = average;
+	}
+
 	@Override
 	public void readFields(DataInput in) throws IOException {
 		count=in.readFloat();
