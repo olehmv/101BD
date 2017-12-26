@@ -1,6 +1,6 @@
 package module1.homework2;
 
-public class ApacheLog{
+ class ApacheLog{
 	private String idAddress;
 	private String dateTime;
 	private String request;

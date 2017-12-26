@@ -12,14 +12,15 @@ public class LogReducer extends Reducer<Text, CountAverageTuple, Text, CountAver
 	protected void reduce(Text key, Iterable<CountAverageTuple> values,
 			Reducer<Text, CountAverageTuple, Text, CountAverageTuple>.Context context)
 			throws IOException, InterruptedException {
-		int sum = 0;
-		int count = 0;
+		float sum = 0;
+		float count = 0;
 		for (CountAverageTuple val : values) {
 			sum += val.getCount() * val.getAverage();
 			count += val.getCount();
 
 		}
-		result.setCount(count);
+//		context.getCounter("Filtered Http Status ", "Code 304").increment(1);
+		result.setCount(sum);
 		result.setAverage(sum/count);
 		context.write(key, result);
 	}

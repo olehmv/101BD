@@ -19,7 +19,7 @@ public class LogMapper extends Mapper<LongWritable, Text, Text, CountAverageTupl
 			ipAdress = new Text(apacheLog.getIdAddress());
 			bytesSent = new IntWritable(Integer.parseInt(apacheLog.getBytesSent()));
 		} catch (IllegalArgumentException e) {
-			context.getCounter("Filtered Http Status ", "Code 304").increment(1);
+				context.getCounter("Zero Bytes", "count").increment(1);				
 		}
 		outCountAverage.setCount(1);
 		outCountAverage.setAverage(bytesSent.get());
