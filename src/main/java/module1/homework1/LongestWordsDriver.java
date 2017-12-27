@@ -9,10 +9,19 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import module1.homework1.CustomKey;
 
-
+/**
+ * Accepts input file and output folder paths, defines job properties, runs job
+ * @author Oleh
+ * @param String [] -> input file and output folder
+ *
+ */
 public class LongestWordsDriver {
 
 	public static void main(String[] args) throws Exception {
+		if (args.length != 2) {
+			System.err.println("Usage LongestWordsDriver: <input file> <output folder>");
+			System.exit(2);
+		}
 		Configuration conf = new Configuration();		
 		Job job = Job.getInstance(conf, "Longest Words");
 		job.setJarByClass(module1.homework1.LongestWordsDriver.class);

@@ -9,9 +9,14 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 /**
  * Map word length to word
- * @author oleh
- *
+ * @author Oleh
+ *@param LongWritable input key -> line byte offset
+ *@param Text input value -> content of the line
+ *@param CustomKey output key -> length of the word, key defines a descending order
+ *@param Text output value -> word from line
+ *  
  */
+
 public class LongestWordsMapper extends Mapper<LongWritable, Text, CustomKey, Text> {
 	private CustomKey wordLength;
 	private Text word;

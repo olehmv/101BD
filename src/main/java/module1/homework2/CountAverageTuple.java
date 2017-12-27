@@ -3,16 +3,16 @@ package module1.homework2;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-
+/**
+ * Writable class to send values across network, helps implements reducer as combiner 
+ * @author Oleh
+ */
 import org.apache.hadoop.io.Writable;
 
-public class CountAverageTuple implements Writable{
+public class CountAverageTuple implements Writable {
 	private float count;
 	private float average;
-	
-	
-	
-	
+
 	public CountAverageTuple(float count, float average) {
 		super();
 		this.count = count;
@@ -24,8 +24,8 @@ public class CountAverageTuple implements Writable{
 
 	@Override
 	public void readFields(DataInput in) throws IOException {
-		count=in.readFloat();
-		average=in.readFloat();
+		count = in.readFloat();
+		average = in.readFloat();
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class CountAverageTuple implements Writable{
 
 	@Override
 	public String toString() {
-		 return  average+","+(long)count;
+		return average + "," + (long) count;
 	}
 
 	@Override
@@ -79,7 +79,5 @@ public class CountAverageTuple implements Writable{
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

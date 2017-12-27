@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.apache.hadoop.io.WritableComparable;
 
 /**
- * CustomKey class Causes a descending order in the shuffle/sort phase
+ * CustomKey -> defines a descending order in the shuffle/sort phase
  * 
  * @author Oleh
  */
