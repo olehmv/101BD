@@ -6,11 +6,14 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+
+import eu.bitwalker.useragentutils.UserAgent;
+
 import static module1.homework2.LogRexExp.parseApacheLog;
 
 /**
- * Maps ip address to CountAverageTuple(ONE,Bytes Sent), counts and filters zero
- * bytes sent log line, writes out zero bytes counter
+ * Maps ip address to CountAverageTuple(ONE,Bytes Sent)
+ * 
  * 
  * @author Oleh
  * @param LongWritable
@@ -31,10 +34,12 @@ public class LogMapper extends Mapper<LongWritable, Text, Text, CountAverageTupl
 	public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
 		try {
 			ApacheLog apacheLog = parseApacheLog(ivalue.toString());
+			UserAgent userAgent = new UserAgent(apacheLog.getBrowser());
 			ipAdress = new Text(apacheLog.getIdAddress());
 			bytesSent = new IntWritable(Integer.parseInt(apacheLog.getBytesSent()));
-		} catch (IllegalArgumentException e) {
-			context.getCounter("Zero Bytes", "count").increment(1);
+            context.getCounter("Browsers", userAgent.getBrowser().getName()).increment(1);
+            } catch (IllegalArgumentException e) {
+			return;
 		}
 		outCountAverage.setCount(ONE);
 		outCountAverage.setAverage(bytesSent.get());

@@ -7,21 +7,19 @@ import java.util.regex.Pattern;
  * @author Oleh
  *
  */
- final class LogRexExp{
+ public final class LogRexExp{
 	
-	private static final String LOGENTRYPATTERN = "^([ip\\d.]+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\d+) \"([^\"]+)\" \"([^\"]+)\"";
+	private static final String LOGENTRYPATTERN = "(ip\\d+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\d+) \"([^\"]+)\" \"([^\"]+)\"";
     private static final Pattern PATTERN = Pattern.compile(LOGENTRYPATTERN);
-    public static final int NUM_FIELDS = 9;
-    public static final int ZERO=0;
     /**
-     * Parses log line, throws IllegalArgumentException if finds bad log line or bytes sent is 0
+     * Parses log line, throws IllegalArgumentException if finds bad log line
      * @param String  -> line
      * @return ApacheLog -> POJO holder for log properties
      * @throws IllegalArgumentException
      */
     public static ApacheLog parseApacheLog(String line) throws IllegalArgumentException{
     	Matcher matcher = PATTERN.matcher(line);
-	    if (!matcher.matches()||NUM_FIELDS != matcher.groupCount()||Integer.parseInt(matcher.group(7))==ZERO) {
+	    if (!matcher.matches()) {
 	    	throw new IllegalArgumentException();
 	    }
 	    return new ApacheLog(matcher.group(1), matcher.group(4), matcher.group(5), matcher.group(6), matcher.group(7) , matcher.group(9)); 

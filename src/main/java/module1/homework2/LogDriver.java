@@ -16,6 +16,7 @@ import org.apache.log4j.BasicConfigurator;
 public class LogDriver {
 
 	public static void main(String[] args) throws Exception {
+		BasicConfigurator.configure();
 		if (args.length != 2) {
 			System.err.println("Usage LogDriver: <input file> <output folder>");
 			System.exit(2);

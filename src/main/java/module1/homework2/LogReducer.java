@@ -16,7 +16,8 @@ import org.apache.hadoop.mapreduce.Reducer;
  * @param Text
  *            output key -> ip address
  * @param CountAverageTuple
- *            output value -> sum of bytes sent and average of the bytes sent per ip address
+ *            output value -> sum of bytes sent and average of the bytes sent
+ *            per ip address
  *
  */
 public class LogReducer extends Reducer<Text, CountAverageTuple, Text, CountAverageTuple> {

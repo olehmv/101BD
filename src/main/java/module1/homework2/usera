@@ -1,0 +1,4 @@
+public String getBrowserName() {
+        UserAgent userAgent = new UserAgent(splittedEntry.getUserAgentInfo());
+        return userAgent.getBrowser().getName();
+    }

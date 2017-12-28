@@ -1,5 +1,7 @@
 package module1.homework2;
 
+import eu.bitwalker.useragentutils.UserAgent;
+
 /**
  * Apache log properties holder POJO
  * 
